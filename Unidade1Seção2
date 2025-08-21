@@ -1,0 +1,76 @@
+# --- Definição das Funções para Operações Lógicas ---
+# Na lógica computacional, True (Verdadeiro) e False (Falso) são os valores binários (1 e 0).
+
+# 1. Conjunção (AND - E)
+# Retorna True se e somente se ambas as proposições (a e b) forem True.
+# Caso contrário, retorna False.
+# Conceito da fonte: "Verdadeiro apenas se A e B forem verdadeiros" [10].
+def operacao_and(a, b):
+    return a and b
+
+# 2. Disjunção (OR - OU)
+# Retorna False se e somente se ambas as proposições (a e b) forem False.
+# Caso contrário, retorna True.
+# Conceito da fonte: "Falso apenas se A e B forem falsos" [11].
+def operacao_or(a, b):
+    return a or b
+
+# 3. Negação (NOT - NÃO)
+# Inverte o valor lógico da proposição (a).
+# Se True, retorna False; se False, retorna True.
+# Conceito da fonte: "tem a função de inverter, seja uma entrada ou o resultado de uma operação" [12].
+def operacao_not(a):
+    return not a
+
+# --- Geração das Tabelas-Verdade ---
+
+print("--- Demonstração das Operações Lógicas Fundamentais na Lógica Computacional ---")
+print("Baseado nos conceitos da Álgebra Booleana e Tabelas-Verdade [1, 4]\n")
+
+# 1. Tabela Verdade para Conjunção (AND)
+print("1. Conjunção (AND - E)")
+print("Símbolo: ∧ ou AND [3]")
+print("Regra: A AND B é Verdadeiro (V) somente se A e B forem Verdadeiros (V).")
+print("Caso contrário, é Falso (F) [10].\n")
+
+tabela_and = PrettyTable()
+tabela_and.field_names = ["A", "B", "A AND B"] # Cabeçalho da tabela
+# Combinações possíveis para duas proposições (2^2 = 4 combinações) [6]
+valores_logicos = [True, False]
+for a in valores_logicos:
+    for b in valores_logicos:
+        resultado = operacao_and(a, b)
+        tabela_and.add_row([a, b, resultado])
+print(tabela_and)
+print("\n")
+
+# 2. Tabela Verdade para Disjunção (OR)
+print("2. Disjunção (OR - OU)")
+print("Símbolo: ∨ ou OR [3]")
+print("Regra: A OR B é Falso (F) somente se A e B forem Falsos (F).")
+print("Caso contrário, é Verdadeiro (V) [11].\n")
+
+tabela_or = PrettyTable()
+tabela_or.field_names = ["A", "B", "A OR B"]
+for a in valores_logicos:
+    for b in valores_logicos:
+        resultado = operacao_or(a, b)
+        tabela_or.add_row([a, b, resultado])
+print(tabela_or)
+print("\n")
+
+# 3. Tabela Verdade para Negação (NOT)
+print("3. Negação (NOT - NÃO)")
+print("Símbolo: ¬ ou NOT [3]")
+print("Regra: Inverte o valor lógico da proposição [12].\n")
+
+tabela_not = PrettyTable()
+tabela_not.field_names = ["A", "NOT A"]
+for a in valores_logicos:
+    resultado = operacao_not(a)
+    tabela_not.add_row([a, resultado])
+print(tabela_not)
+print("\n")
+
+print("Essas tabelas-verdade são fundamentais para entender o comportamento das operações lógicas")
+print("e como elas são aplicadas na construção de algoritmos e sistemas computacionais [7, 8, 13].")
